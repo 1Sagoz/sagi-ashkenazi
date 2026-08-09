@@ -10,32 +10,32 @@
   --bg:#f6f5f1; --ink:#141414; --dim:#726d63; --line:rgba(20,20,20,0.12);
   --accent:#a24bff;
 }
-*{margin:0;padding:0;box-sizing:border-box;}
+*{margin:0;padding:0;box-sizing:border-box;max-width:100%;}
 ::selection{background:rgba(255,111,165,0.7);}
 ::-moz-selection{background:rgba(255,111,165,0.7);}
-html{scroll-behavior:smooth;}
-body{position:relative;background:var(--bg);color:var(--ink);font-family:'Heebo',Arial,sans-serif;font-weight:300;transition:background-color .4s ease;}
+html{scroll-behavior:smooth;overflow-x:hidden;width:100%;}
+body{position:relative;background:var(--bg);color:var(--ink);font-family:'Heebo',Arial,sans-serif;font-weight:300;transition:background-color .4s ease;overflow-x:hidden;width:100%;}
 canvas#field{position:absolute;top:0;left:0;width:100%;z-index:0;pointer-events:none;opacity:0.9;}
 .content{position:relative;z-index:2;}
 
-nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:24px 6vw;background:linear-gradient(to bottom, var(--bg) 40%, transparent);gap:14px;}
+nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;padding:24px 6vw;background:linear-gradient(to bottom, var(--bg) 40%, transparent);gap:14px;row-gap:8px;}
 nav .brand{font-weight:500;font-size:14px;letter-spacing:3px;display:flex;align-items:center;gap:16px;flex-shrink:0;}
-nav .brand img{height:56px;width:auto;display:block;flex-shrink:0;}
+nav .brand img{height:64px;width:auto;display:block;flex-shrink:0;}
 nav .brand-name{white-space:nowrap;}
-nav .nav-right{display:flex;align-items:center;gap:34px;}
-nav ul{list-style:none;display:flex;gap:36px;flex-wrap:wrap;justify-content:flex-end;}
+nav .nav-right{display:flex;align-items:center;gap:34px;flex-wrap:wrap;min-width:0;}
+nav ul{list-style:none;display:flex;gap:36px;flex-wrap:wrap;justify-content:flex-end;min-width:0;}
 nav a{color:var(--ink);text-decoration:none;font-size:12px;letter-spacing:1.5px;opacity:0.6;transition:opacity .3s;white-space:nowrap;}
 nav a:hover{opacity:1;}
 @media (max-width:900px){
   nav{padding:18px 5vw;gap:10px;}
   nav .brand{gap:10px;font-size:12px;}
-  nav .brand img{height:44px;}
+  nav .brand img{height:52px;}
   nav ul{gap:16px;}
   nav a{font-size:11px;letter-spacing:1px;}
 }
 @media (max-width:560px){
   nav{padding:14px 4.5vw;}
-  nav .brand img{height:36px;}
+  nav .brand img{height:44px;}
   nav .brand-name{display:none;}
   nav ul{gap:11px;}
   nav a{font-size:10px;letter-spacing:0.5px;}
@@ -229,10 +229,10 @@ video::cue{color:#fff;background:rgba(10,10,10,0.55);font-size:1.05rem;}
 .project-nav-btn:hover{background:var(--ink);color:var(--bg);border-color:var(--ink);}
 .project-back-fixed{position:fixed;top:24px;left:50%;transform:translateX(-50%);z-index:320;box-shadow:0 10px 30px -12px rgba(20,20,20,0.25);}
 .lab-header-logo{position:fixed;top:16px;right:6vw;z-index:320;}
-.lab-header-logo img{height:68px;width:auto;display:block;}
+.lab-header-logo img{height:76px;width:auto;display:block;}
 @media (max-width:700px){
   .lab-header-logo{top:12px;right:4vw;}
-  .lab-header-logo img{height:48px;}
+  .lab-header-logo img{height:56px;}
 }
 .project-end-note{display:block;font-size:0.85rem;color:var(--dim);}
 .project-next-card{display:flex;align-items:center;gap:18px;text-decoration:none;color:var(--ink);border:1px solid var(--line);border-radius:12px;padding:12px;max-width:420px;width:100%;transition:transform .4s ease, box-shadow .4s ease;}
@@ -251,6 +251,12 @@ video::cue{color:#fff;background:rgba(10,10,10,0.55);font-size:1.05rem;}
 .project-video{width:100%;max-width:900px;display:block;margin:34px auto 0;background:#000;border-radius:4px;}
 @media (max-width:700px){
   .project-gallery img{width:calc(50% - 5px);height:150px;}
+}
+@media (max-width:640px){
+  .block p, .lab-gate p.lab-desc, .lab-video-caption, .project-page-inner p{
+    text-align:right;
+    text-align-last:right;
+  }
 }
 .project-slideshow{position:relative;width:100%;height:420px;border-radius:4px;overflow:hidden;margin-top:34px;background:#111;}
 .project-slideshow img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.4s ease;}
