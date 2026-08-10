@@ -88,8 +88,8 @@ section.block{padding:20vh 6vw;max-width:900px;margin:0 auto;text-align:center;}
 
 .approach-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:60px;align-items:center;}
 .cv-grid.cv-no-photo{grid-template-columns:1fr;max-width:680px;margin:0 auto;}
-.cv-photo-wrap{max-width:340px;margin:0 auto;}
-.cv-photo-wrap img{border-radius:10px;}
+.cv-photo-wrap{max-width:220px;margin:0 auto;}
+.cv-photo-wrap img{border-radius:10px;box-shadow:0 30px 60px -20px rgba(20,20,20,0.35);}
 .approach-text p{margin-left:0;}
 .approach-image img{width:100%;height:auto;display:block;border-radius:6px;box-shadow:0 30px 60px -20px rgba(20,20,20,0.25);}
 .approach-slideshow{position:relative;width:100%;aspect-ratio:3/4;border-radius:6px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(20,20,20,0.25);background:var(--bg);}
@@ -101,7 +101,7 @@ section.block{padding:20vh 6vw;max-width:900px;margin:0 auto;text-align:center;}
 @media (max-width:800px){
   .approach-grid{grid-template-columns:1fr;gap:34px;}
   .approach-image{order:2;}
-  .cv-photo-wrap{max-width:280px;margin:0 auto;}
+  .cv-photo-wrap{max-width:180px;margin:0 auto;}
 }
 
 .work{position:relative;padding:16vh 6vw 8vh;border-top:1px solid var(--line);}
@@ -469,7 +469,13 @@ video::cue{color:#fff;background:rgba(10,10,10,0.55);font-size:1.05rem;}
     </div>
 </section>
 
-<section class="contact" id="contact">
+<footer>שגיא אשכנזי © 2026</footer>
+
+</div>
+
+<div class="project-page" id="contact">
+  <a class="project-nav-btn project-back-fixed" href="#approach" aria-label="חזרה"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5l10 7-10 7z"/></svg></a>
+  <section class="contact" id="contact-inner" style="border-top:none;">
   <span class="label r">בוא נדבר</span>
   <h2 class="r">מוכנים ליצור ביחד?</h2>
   <a class="mail r" href="mailto:sagi66a@gmail.com">sagi66a@gmail.com</a>
@@ -484,10 +490,7 @@ video::cue{color:#fff;background:rgba(10,10,10,0.55);font-size:1.05rem;}
       <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1"/></svg>
     </a>
   </div>
-</section>
-
-<footer>שגיא אשכנזי © 2026</footer>
-
+  </section>
 </div>
 
 <div class="project-page" id="lab">
@@ -543,7 +546,7 @@ video::cue{color:#fff;background:rgba(10,10,10,0.55);font-size:1.05rem;}
   </section>
 </div>
 
-<div class="project-page" id="cv" style="--bg:#3aa8dc;--ink:#fdfcf9;--dim:rgba(255,255,255,0.8);--line:rgba(255,255,255,0.28);">
+<div class="project-page" id="cv" style="--bg:radial-gradient(circle at 50% 28%, #ff8fd6 0%, #ec3fb0 42%, #9c1478 100%);--ink:#fdfcf9;--dim:rgba(255,255,255,0.85);--line:rgba(255,255,255,0.28);">
   <canvas class="project-field"></canvas>
   <a class="project-nav-btn project-back-fixed" href="#approach" aria-label="חזרה"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5l10 7-10 7z"/></svg></a>
   <section class="block cv-page-inner" style="max-width:1140px;padding-top:20vh;position:relative;z-index:1;">
