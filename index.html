@@ -191,8 +191,6 @@ footer{text-align:center;padding:40px 6vw;color:var(--dim);font-size:11px;border
 .word-stack span:nth-child(7){transition-delay:1.25s;}
 
 .lab-gate{padding:20vh 6vw 14vh;max-width:1200px;margin:0 auto;text-align:center;}
-.lab-hero-video{position:relative;width:100%;aspect-ratio:16/5;overflow:hidden;background:#000;}
-.lab-hero-video-el{width:100%;height:100%;object-fit:cover;object-position:center bottom;display:block;}
 .lab-hero-yt-link{text-align:center;margin:0 0 22px;}
 .lab-gate-media{position:relative;width:50%;margin:0 auto 90px;}
 .lab-gate-media img{width:100%;height:auto;display:block;border-radius:6px;}
@@ -537,43 +535,8 @@ video::cue{color:#fff;background:rgba(10,10,10,0.55);font-size:1.05rem;}
 <div class="project-page" id="lab">
   <canvas class="project-field" data-shape-color="rainbow"></canvas>
   <a class="project-nav-btn project-back-fixed" href="#approach" aria-label="חזרה"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5l10 7-10 7z"/></svg></a>
-  <div class="lab-hero-video">
-    <video id="lab-hero-video" class="lab-hero-video-el" autoplay muted loop playsinline preload="auto" src="video-lab-hashrur-loop.mp4"></video>
-  </div>
-  <script>
-  (function(){
-    var v = document.getElementById('lab-hero-video');
-    if(!v) return;
-    v.muted = true;
-    v.defaultMuted = true;
-    function tryPlay(){
-      v.muted = true;
-      var p = v.play();
-      if(p && p.catch) p.catch(function(){});
-    }
-    v.addEventListener('loadedmetadata', tryPlay);
-    v.addEventListener('canplay', tryPlay);
-    v.addEventListener('canplaythrough', tryPlay);
-    if(v.readyState >= 1) tryPlay();
-    setTimeout(tryPlay, 300);
-    setTimeout(tryPlay, 1200);
-    // #lab is a hidden overlay (opacity:0) until its hash becomes active;
-    // some browsers throttle/pause video on invisible elements, so re-trigger
-    // play specifically at the moment the page actually becomes visible.
-    function onLabVisible(){ if(location.hash === '#lab') tryPlay(); }
-    window.addEventListener('hashchange', onLabVisible);
-    onLabVisible();
-    if(document.visibilityState){
-      document.addEventListener('visibilitychange', function(){
-        if(document.visibilityState === 'visible') onLabVisible();
-      });
-    }
-    ['pointerdown','touchstart','scroll','keydown'].forEach(function(evt){
-      window.addEventListener(evt, function(){ if(v.paused) tryPlay(); }, {once:true, passive:true});
-    });
-  })();
-  </script>
-  <section class="block lab-gate" style="position:relative;z-index:1;padding-top:6vh;">
+  <section class="block lab-gate" style="position:relative;z-index:1;padding-top:20vh;">
+  <video class="lab-demo-video r" controls playsinline preload="metadata" src="video-lab-hashrur.mp4"></video>
   <div class="lab-hero-yt-link r">
     <a class="project-nav-btn" href="https://youtu.be/aK6oYpg46FA?si=gaEkrAZywmIjrDC4" target="_blank" rel="noopener">לצפייה בסרט המלא ביוטיוב</a>
   </div>
