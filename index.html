@@ -538,7 +538,7 @@ video::cue{color:#fff;background:rgba(10,10,10,0.55);font-size:1.05rem;}
   <canvas class="project-field" data-shape-color="rainbow"></canvas>
   <a class="project-nav-btn project-back-fixed" href="#approach" aria-label="חזרה"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5l10 7-10 7z"/></svg></a>
   <div class="lab-hero-video">
-    <video id="lab-hero-video" class="lab-hero-video-el" autoplay muted playsinline preload="auto" src="video-lab-hashrur.mp4#t=870"></video>
+    <video id="lab-hero-video" class="lab-hero-video-el" autoplay muted loop playsinline preload="auto" src="video-lab-hashrur-loop.mp4"></video>
   </div>
   <script>
   (function(){
@@ -546,17 +546,7 @@ video::cue{color:#fff;background:rgba(10,10,10,0.55);font-size:1.05rem;}
     if(!v) return;
     v.muted = true;
     v.defaultMuted = true;
-    var START = 870;
-    var END = 930;
-    var seeked = false;
-    function setStart(){
-      if(seeked) return;
-      if(v.readyState < 1) return;
-      seeked = true;
-      try{ v.currentTime = START; }catch(e){}
-    }
     function tryPlay(){
-      setStart();
       v.muted = true;
       var p = v.play();
       if(p && p.catch) p.catch(function(){});
@@ -565,7 +555,6 @@ video::cue{color:#fff;background:rgba(10,10,10,0.55);font-size:1.05rem;}
     v.addEventListener('canplay', tryPlay);
     v.addEventListener('canplaythrough', tryPlay);
     if(v.readyState >= 1) tryPlay();
-    v.load();
     setTimeout(tryPlay, 300);
     setTimeout(tryPlay, 1200);
     // #lab is a hidden overlay (opacity:0) until its hash becomes active;
@@ -581,9 +570,6 @@ video::cue{color:#fff;background:rgba(10,10,10,0.55);font-size:1.05rem;}
     }
     ['pointerdown','touchstart','scroll','keydown'].forEach(function(evt){
       window.addEventListener(evt, function(){ if(v.paused) tryPlay(); }, {once:true, passive:true});
-    });
-    v.addEventListener('timeupdate', function(){
-      if(v.currentTime >= END || (v.duration && v.currentTime >= v.duration - 0.3)){ v.currentTime = START; v.play(); }
     });
   })();
   </script>
