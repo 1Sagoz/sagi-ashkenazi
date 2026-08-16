@@ -555,6 +555,8 @@ video::cue{color:#fff;background:rgba(10,10,10,0.55);font-size:1.05rem;}
     var v = document.getElementById('lab-hero-video');
     var btn = document.getElementById('lab-hero-unmute');
     if(!v || !btn) return;
+    v.muted = true;
+    v.defaultMuted = true;
     var START = 869;
     var END = 920;
     var seeked = false;
@@ -566,6 +568,7 @@ video::cue{color:#fff;background:rgba(10,10,10,0.55);font-size:1.05rem;}
     }
     function tryPlay(){
       setStart();
+      v.muted = true;
       var p = v.play();
       if(p && p.catch) p.catch(function(){});
     }
@@ -576,6 +579,17 @@ video::cue{color:#fff;background:rgba(10,10,10,0.55);font-size:1.05rem;}
     v.load();
     setTimeout(tryPlay, 300);
     setTimeout(tryPlay, 1200);
+    // #lab is a hidden overlay (opacity:0) until its hash becomes active;
+    // some browsers throttle/pause video on invisible elements, so re-trigger
+    // play specifically at the moment the page actually becomes visible.
+    function onLabVisible(){ if(location.hash === '#lab') tryPlay(); }
+    window.addEventListener('hashchange', onLabVisible);
+    onLabVisible();
+    if(document.visibilityState){
+      document.addEventListener('visibilitychange', function(){
+        if(document.visibilityState === 'visible') onLabVisible();
+      });
+    }
     ['pointerdown','touchstart','scroll','keydown'].forEach(function(evt){
       window.addEventListener(evt, function(){ if(v.paused) tryPlay(); }, {once:true, passive:true});
     });
