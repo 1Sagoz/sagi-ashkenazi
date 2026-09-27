@@ -1562,16 +1562,15 @@ body.night-mode .hero-video-placeholder{background:linear-gradient(135deg, #1412
       if(fr) fr.remove();
       filmActive = false;
     }
-    var fio = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){ if(e.isIntersecting) loadFilm(e.target); });
-    }, {rootMargin: '150px'});
-    films.forEach(function(box){ fio.observe(box); });
-    window.addEventListener('hashchange', function(){
+    function syncFilms(){
       films.forEach(function(box){
         var page = box.closest('.project-page');
-        if(!page || '#' + page.id !== location.hash) unloadFilm(box);
+        var open = page && ('#' + page.id) === location.hash;
+        if(open) loadFilm(box); else unloadFilm(box);
       });
-    });
+    }
+    window.addEventListener('hashchange', syncFilms);
+    syncFilms();
   }
 })();
 </script>
