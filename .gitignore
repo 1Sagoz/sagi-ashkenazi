@@ -1,3 +1,21 @@
 
 # raw source too large for GitHub (>100MB)
 שלכת .mp4
+
+# ---- ניקוי ספטמבר 2026 ----
+# קבצי מקור ותצוגות ישנות: נשמרים במחשב, לא נדרשים באתר החי
+.DS_Store
+web-previews/
+video-lab-*.mp4
+# הסרטונים של לאה גולדברג כן נדרשים באתר:
+!video-lab-leah-intro.mp4
+!video-lab-leah-innerroom.mp4
+!video-lab-leah-song1.mp4
+!video-lab-leah-song2.mp4
+!video-lab-leah-song3.mp4
+!video-lab-leah-song4.mp4
+video-lab-*.vtt
+300-israel-new-compressed.mp4
+seminar-outpost-pumpkin.pdf
+index.html.bak-preimport
+*Childhood _ Lea Goldberg.mp4
